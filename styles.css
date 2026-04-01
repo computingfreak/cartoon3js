@@ -1,0 +1,84 @@
+:root {
+  color-scheme: dark;
+  font-family: 'Trebuchet MS', 'Avenir Next', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  background: radial-gradient(circle at 20% 20%, #263354, #0f1525 60%, #05070f);
+  color: #f3f6ff;
+}
+
+#story-canvas {
+  width: 100vw;
+  height: 100vh;
+  display: block;
+}
+
+.hud {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 10;
+  width: min(44rem, calc(100vw - 2rem));
+  padding: 1rem 1.2rem;
+  border-radius: 1rem;
+  background: rgba(12, 17, 32, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.17);
+  backdrop-filter: blur(8px);
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(1.1rem, 1.5vw, 1.7rem);
+}
+
+.subtitle,
+.story-description,
+.hint {
+  margin: 0.45rem 0 0;
+}
+
+.subtitle {
+  color: #bed3ff;
+  font-size: 0.95rem;
+}
+
+.story-description {
+  color: #d4dcff;
+  min-height: 2.8rem;
+}
+
+.hint {
+  opacity: 0.8;
+  font-size: 0.83rem;
+}
+
+.story-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.65rem;
+}
+
+.story-button {
+  border: 1px solid #95b2ff;
+  background: rgba(89, 119, 211, 0.17);
+  color: #f1f5ff;
+  border-radius: 999px;
+  padding: 0.4rem 0.7rem;
+  cursor: pointer;
+  transition: 180ms ease;
+}
+
+.story-button:hover,
+.story-button.active {
+  background: rgba(123, 161, 255, 0.36);
+  transform: translateY(-1px);
+  border-color: #b8d0ff;
+}
