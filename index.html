@@ -5,14 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>StoryVerse 3D | Cartoon Storytelling for Kids</title>
     <link rel="stylesheet" href="styles.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.163.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.163.0/examples/jsm/"
+        }
+      }
+    </script>
   </head>
   <body>
     <header class="hud">
       <h1>StoryVerse 3D</h1>
       <p class="subtitle">Immersive Pixar-like cartoon storytelling with three.js</p>
+      <div class="story-pickers">
+        <label for="story-select">Choose a story:</label>
+        <select id="story-select"></select>
+      </div>
       <div class="story-controls" id="story-controls"></div>
       <p class="story-description" id="story-description"></p>
-      <p class="hint">Press 1-5 to switch stories • Drag to orbit • Scroll to zoom</p>
+      <p class="hint">Use the dropdown or story buttons to switch adventures • Drag to orbit • Scroll to zoom</p>
     </header>
     <canvas id="story-canvas"></canvas>
     <script type="module" src="main.js"></script>

@@ -19,7 +19,7 @@ python3 -m http.server 4173
 Then open `http://localhost:4173`.
 
 ## Controls
-- Click story chips to switch experiences
-- Press keys `1` to `5`
+- Choose a story from the dropdown
+- Or click story chips to switch experiences
 - Drag to orbit camera
 - Scroll to zoom

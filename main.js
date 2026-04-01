@@ -1,9 +1,10 @@
-import * as THREE from 'https://unpkg.com/three@0.163.0/build/three.module.js';
-import { OrbitControls } from 'https://unpkg.com/three@0.163.0/examples/jsm/controls/OrbitControls.js';
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 const canvas = document.querySelector('#story-canvas');
 const descriptionEl = document.querySelector('#story-description');
 const controlsEl = document.querySelector('#story-controls');
+const selectEl = document.querySelector('#story-select');
 
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -402,16 +403,15 @@ const storyOptions = [
 ];
 
 let activeAnimator = () => {};
-let activeStoryIndex = 0;
 
 function setStory(index) {
-  activeStoryIndex = index;
   const selected = storyOptions[index];
   clearStory();
   activeAnimator = selected.setup();
 
   descriptionEl.textContent = `${selected.name}: ${selected.description}`;
   [...controlsEl.children].forEach((btn, i) => btn.classList.toggle('active', i === index));
+  selectEl.value = String(index);
 }
 
 storyOptions.forEach((story, index) => {
@@ -422,9 +422,17 @@ storyOptions.forEach((story, index) => {
   controlsEl.append(button);
 });
 
-window.addEventListener('keydown', (event) => {
-  const idx = storyOptions.findIndex((story) => story.key === event.key);
-  if (idx >= 0) setStory(idx);
+
+storyOptions.forEach((story, index) => {
+  const option = document.createElement('option');
+  option.value = String(index);
+  option.textContent = `${story.key}. ${story.name}`;
+  selectEl.append(option);
+});
+
+selectEl.addEventListener('change', (event) => {
+  const index = Number(event.target.value);
+  if (!Number.isNaN(index)) setStory(index);
 });
 
 setStory(0);

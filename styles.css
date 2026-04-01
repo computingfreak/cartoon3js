@@ -82,3 +82,24 @@ h1 {
   transform: translateY(-1px);
   border-color: #b8d0ff;
 }
+
+
+.story-pickers {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.65rem;
+}
+
+.story-pickers label {
+  font-size: 0.9rem;
+  color: #d6e4ff;
+}
+
+#story-select {
+  border: 1px solid #95b2ff;
+  background: rgba(89, 119, 211, 0.2);
+  color: #f1f5ff;
+  border-radius: 0.55rem;
+  padding: 0.38rem 0.5rem;
+}
